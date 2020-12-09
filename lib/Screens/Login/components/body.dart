@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movidea/Screens/Login/login_screen.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:movidea/Screens/Login/components/background.dart';
 import 'package:movidea/Screens/Signup/signup_screen.dart';
-import 'package:movidea/Screens/Welcome/components/background.dart';
+import 'package:movidea/Screens/Welcome/welcome_screen.dart';
+import 'package:movidea/components/already_have_an_account_checked.dart';
 import 'package:movidea/components/rouded_button.dart';
-import 'package:movidea/constants.dart';
+import 'package:movidea/components/rounded_input_field.dart';
+import 'package:movidea/components/rounded_password_field.dart';
 
 class Body extends StatelessWidget {
+  const Body({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,19 +22,22 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "WELCOME TO MOVIDEA",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
+              "LOGIN",
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: size.height * 0.05,
-            ),
+            SizedBox(height: size.height * 0.03),
             SvgPicture.asset(
-              "assets/icons/chat.svg",
+              "assets/icons/login.svg",
               height: size.height * 0.3,
+            ),
+            SizedBox(height: size.height * 0.03),
+            RoundedInputField(
+              hintText: "Your Email",
+              icon: Icons.person,
+              onChanged: (value) {},
+            ),
+            RoundedPasswordField(
+              onChange: (value) {},
             ),
             RoundedButton(
               text: "LOGIN",
@@ -37,16 +46,14 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      return WelcomeScreen();
                     },
                   ),
                 );
               },
             ),
-            RoundedButton(
-              text: "SIGN-UP",
-              color: kPrimaryLightColor,
-              textColor: Colors.black,
+            SizedBox(height: size.height * 0.03),
+            AlreadyHaveAccountCheck(
               press: () {
                 Navigator.push(
                   context,
@@ -57,7 +64,7 @@ class Body extends StatelessWidget {
                   ),
                 );
               },
-            ),
+            )
           ],
         ),
       ),

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'MovIdea',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Colors.white,
       ),
       home: WelcomeScreen(),
     );

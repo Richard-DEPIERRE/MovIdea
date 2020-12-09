@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movidea/Screens/Login/components/body.dart';
+import 'package:movidea/Screens/Building/components/body.dart';
 
-class LoginScreen extends StatelessWidget {
+class Building extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
