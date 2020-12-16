@@ -1,3 +1,4 @@
+import 'package:ThinkWatch/Screens/FirstLogin/first_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ThinkWatch/API/api.dart';
@@ -109,12 +110,13 @@ class _BodyState extends State<Body> {
               text: "LOGIN",
               press: () async {
                 var data = await checkUser(username.text, password.text);
+                print(data);
                 if (data == 200) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Building();
+                        return FirstLogin();
                       },
                     ),
                   );
